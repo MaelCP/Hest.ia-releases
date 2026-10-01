@@ -85,7 +85,19 @@ toutes les 30 secondes (en lecture seule) et peut envoyer depuis eux.
 adresse, identifiant et mot de passe du webmail. Le mot de passe est rangé dans le trousseau du Mac, jamais dans
 l'app. **Prévenez votre service informatique** de cet usage.
 
-## 8. Premier essai conseillé (avec des données fictives)
+## 8. Reprendre vos dossiers existants
+
+Vous avez déjà des patients dans le Finder ? **Patients → Importer des dossiers** → choisissez le dossier.
+
+- Rangement accepté : **un sous-dossier par patient** (« DUPONT Jean ») ou **des documents en vrac**
+  (« CR_DUPONT_Jean.pdf ») ; à défaut de nom, Hest.ia le cherche au début du document (« Monsieur DUPONT Jean, né le… »).
+- Un **tableau** montre chaque patient trouvé : corrigez un nom, décochez ce que vous ne voulez pas, « existe déjà »
+  indique un patient présent (les documents s'y ajoutent). Rien n'est importé avant votre clic.
+- PDF, Word, images et textes sont copiés, chiffrés, dans Hest.ia ; **le dossier d'origine n'est jamais modifié**.
+  Les mémos audio sont laissés de côté : importez-les depuis le dossier du patient pour les transcrire.
+- Relancer l'import du même dossier ne crée pas de doublons.
+
+## 9. Premier essai conseillé (avec des données fictives)
 
 1. Créez un patient fictif (Patients → Nouveau patient).
 2. Dans son dossier : **Nouveau document** → « Expertise — protection juridique (trame) » ; cliquez dans le texte
@@ -93,7 +105,7 @@ l'app. **Prévenez votre service informatique** de cet usage.
 3. **→ PDF pour signer** → apposez votre signature → **Envoyer par mail…** à votre propre adresse.
 4. Envoyez-vous un mail avec un PDF en pièce jointe : il apparaît dans **Réception** en moins d'une minute.
 
-## 9. Bon à savoir
+## 10. Bon à savoir
 
 - **Vos données** sont dans un seul fichier chiffré :
   `~/Library/Application Support/io.medicassist.desktop/base.sqlite` (sauvegardé par Time Machine).
@@ -105,7 +117,7 @@ l'app. **Prévenez votre service informatique** de cet usage.
 - **Désinstaller** : glissez Hest.ia à la corbeille. Les dossiers restent dans le fichier ci-dessus
   (à supprimer seulement si vous êtes sûr de ne plus en avoir besoin).
 
-## 10. En cas de problème
+## 11. En cas de problème
 
 | Problème | Solution |
 |---|---|
