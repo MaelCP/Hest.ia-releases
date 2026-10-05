@@ -69,6 +69,9 @@ Au premier lancement, Hest.ia vous guide en 5 étapes ; chacune peut être pass�
    Sans elle, vos dossiers sont perdus si vous changez de Mac ou si le trousseau est réinitialisé.
 5. **Votre voix** : un essai de 30 secondes vérifie le micro.
 
+L'assistant (bulle en bas à droite, ⌘K) marche sans rien installer ; l'IA locale se télécharge depuis
+Réglages → **Assistant et IA locale** (5,2 Go, une fois). Son micro n'est pas disponible dans l'éditeur Word.
+
 ## 7. Connecter votre messagerie
 
 **Le plus simple : ajouter votre compte à l'app Mail du Mac.**
