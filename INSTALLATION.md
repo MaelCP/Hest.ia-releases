@@ -44,7 +44,7 @@ macOS pose quelques questions au fil de l'utilisation. Répondez ainsi :
 
 | Question | Réponse | Pourquoi |
 |---|---|---|
-| Trousseau : « Hest.ia veut utiliser … » | **Toujours autoriser** (mot de passe du Mac) | La clé qui chiffre vos dossiers y est rangée |
+| Trousseau : « Hest.ia veut utiliser … » (une seule fois, si vous aviez une version antérieure à la 0.3) | **Autoriser** (mot de passe du Mac) | Reprendre la clé de vos dossiers ; elle est ensuite scellée par votre compte et retirée du trousseau |
 | Micro | **Autoriser** | Dictée et test de la voix ; le son reste sur le Mac |
 | Reconnaissance vocale | **Autoriser** | Dictée en direct |
 | « Hest.ia souhaite contrôler Mail » | **Autoriser** | Lire vos mails (sans rien modifier) et envoyer ceux que vous rédigez |
@@ -58,7 +58,11 @@ Contacts, Automatisation…) → activer Hest.ia.
 
 ## 6. Premiers pas (dans l'app)
 
-Au premier lancement, Hest.ia vous guide en 5 étapes ; chacune peut être passée et refaite plus tard
+Au premier lancement, Hest.ia vous demande de **créer votre compte** : un identifiant et un mot de passe
+(10 caractères au moins). Ce mot de passe déverrouille vos dossiers chiffrés ; il n'est enregistré nulle part,
+pas même dans le trousseau. Il est demandé à chaque ouverture de l'app.
+
+Hest.ia vous guide ensuite en 5 étapes ; chacune peut être passée et refaite plus tard
 (Réglages → **Revoir les premiers pas**).
 
 1. **Votre identité** : nom (tel qu'après « Docteur »), spécialité, qualités, liste d'inscription, titre sous la
@@ -66,7 +70,7 @@ Au premier lancement, Hest.ia vous guide en 5 étapes ; chacune peut être pass�
 2. **Votre signature** : dessinez-la au trackpad (ou importez une image PNG).
 3. **Votre messagerie** : voir le point 7.
 4. **Votre clé de secours** : **recopiez-la sur papier**, rangez-la en lieu sûr, cochez « Je l'ai notée ».
-   Sans elle, vos dossiers sont perdus si vous changez de Mac ou si le trousseau est réinitialisé.
+   C'est le **seul moyen** de rouvrir vos dossiers si vous oubliez votre mot de passe : sans elle, ils sont perdus.
 5. **Votre voix** : un essai de 30 secondes vérifie le micro.
 
 L'assistant (bulle en bas à droite, ⌘K) marche sans rien installer ; l'IA locale se télécharge depuis
@@ -85,8 +89,8 @@ Ouvrez une fois l'app **Mail** pour qu'elle télécharge vos messages. Hest.ia r
 toutes les 30 secondes (en lecture seule) et peut envoyer depuis eux.
 
 **Autre possibilité : connexion Exchange directe** (Premiers pas → étape 3, ou Réglages → Messagerie Exchange) :
-adresse, identifiant et mot de passe du webmail. Le mot de passe est rangé dans le trousseau du Mac, jamais dans
-l'app. **Prévenez votre service informatique** de cet usage.
+adresse, identifiant et mot de passe du webmail. Le mot de passe est chiffré avec la clé de vos dossiers (fichier
+`ews.json`), jamais en clair sur le disque. **Prévenez votre service informatique** de cet usage.
 
 ## 8. Reprendre vos dossiers existants
 
@@ -110,12 +114,13 @@ Vous avez déjà des patients dans le Finder ? **Patients → Importer des dossi
 
 ## 10. Bon à savoir
 
-- **Vos données** sont dans un seul fichier chiffré :
-  `~/Library/Application Support/io.medicassist.desktop/base.sqlite` (sauvegardé par Time Machine).
+- **Vos données** sont dans un fichier chiffré, avec votre compte à côté :
+  `~/Library/Application Support/io.medicassist.desktop/base.sqlite` et `compte.json` (sauvegardés par Time Machine).
+  Copiez toujours les deux ensemble : sans `compte.json`, seule la clé de secours rouvre la base.
 - **Nouvelle version** : quand une version sort, « Mise à jour … » apparaît en bas du menu de gauche.
   Réglages → **Mises à jour** → **Mettre à jour** : l'app se télécharge, s'installe et redémarre ;
   vos dossiers, votre signature et vos réglages sont conservés. Après une mise à jour, macOS peut redemander
-  l'accès au trousseau ou au micro : répondez comme au point 5.
+  l'accès au micro ou à Mail : répondez comme au point 5.
 - **Apparence** : Réglages → Apparence (clair, sombre ou comme le Mac).
 - **Désinstaller** : glissez Hest.ia à la corbeille. Les dossiers restent dans le fichier ci-dessus
   (à supprimer seulement si vous êtes sûr de ne plus en avoir besoin).
@@ -127,7 +132,8 @@ Vous avez déjà des patients dans le Finder ? **Patients → Importer des dossi
 | « Hest.ia est endommagé ou ne peut pas être ouvert » | Refaire le point 4 (Confidentialité et sécurité → Ouvrir quand même) |
 | La Réception reste vide | Vérifier que le compte est dans l'app **Mail** et que Mail a téléchargé les messages ; Réglages Système → Confidentialité et sécurité → Automatisation → Hest.ia → **Mail** coché |
 | La dictée ne démarre pas | Réglages Système → Confidentialité et sécurité → **Micro** et **Reconnaissance vocale** → Hest.ia activé |
-| L'app demande une « clé de secours » au lancement | Le trousseau ne contient plus la clé (nouveau Mac, trousseau réinitialisé) : saisissez la clé notée sur papier, rien n'est effacé |
+| Mot de passe oublié | Écran de connexion → **Mot de passe oublié ?** → saisissez la clé de secours notée sur papier, puis choisissez un nouveau mot de passe ; rien n'est effacé |
+| L'app demande une « clé de secours » au lancement | `compte.json` manque (nouveau Mac, copie incomplète) : saisissez la clé de secours, puis recréez votre compte ; rien n'est effacé |
 | L'agenda est vide | Confidentialité et sécurité → **Calendriers** → Hest.ia |
 
 Pour signaler un problème : une capture d'écran et une phrase (« j'ai fait…, je m'attendais à… ») suffisent.
